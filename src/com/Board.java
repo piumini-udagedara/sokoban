@@ -24,7 +24,7 @@ public class Board extends JPanel{
 	private static enum STATE{ MENU, GAME };
 	private static STATE currState = STATE.GAME;
 	private int level = 1;
-	private String lepel =Map.get(level);
+	private String label =Map.get(level);
 	private int[] completeLevel = new int[11];
 	
 	private ArrayList<Wall> walls;
@@ -80,8 +80,8 @@ public class Board extends JPanel{
 		Baggage b;
 		Area a;
 //------------------------------------map design--------------------------------------------------
-		for(int i = 0; i < lepel.length(); i++) {
-			char item = lepel.charAt(i);
+		for(int i = 0; i < label.length(); i++) {
+			char item = label.charAt(i);
 			switch (item) {
 				case '\n':
 					y += SPACE;
@@ -443,13 +443,13 @@ public class Board extends JPanel{
 			if(completeLevel[++tempLevel] == 0) {
 				if(level > 9) {
 					level = 1;
-					lepel = Map.get(level);
+					label = Map.get(level);
 				} else {
-					lepel = Map.get(++level);
+					label = Map.get(++level);
 				}
 			} else {
 				level += 2;
-				lepel = Map.get(level);
+				label = Map.get(level);
 			}
 			initWorld();
 		} else {

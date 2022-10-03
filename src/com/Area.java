@@ -15,8 +15,8 @@ public class Area extends Actor{
 	
 	@Override
 	public void init() {
-		ImageIcon iicon = new ImageIcon("src/image/area.png");
-		Image image = iicon.getImage();
+		ImageIcon icon = new ImageIcon("src/image/area.png");
+		Image image = icon.getImage();
 		setImage(image);
 	}
 

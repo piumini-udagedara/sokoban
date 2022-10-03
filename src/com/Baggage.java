@@ -26,8 +26,8 @@ public class Baggage extends Actor{
 	
 	@Override
 	public void init() {
-		ImageIcon iicon = new ImageIcon("src/image/baggage.png");
-		Image image = iicon.getImage();
+		ImageIcon icon = new ImageIcon("src/image/baggage.png");
+		Image image = icon.getImage();
 		setImage(image);
 	}
 
