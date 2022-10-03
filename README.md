@@ -9,8 +9,8 @@
 ### Steps to run the project
 * Fork the repo
 * Clone into local
-* Run npm install
-* Run npm start
+* Make a contribute
+* Create a PR
 
 sokoban game
 
