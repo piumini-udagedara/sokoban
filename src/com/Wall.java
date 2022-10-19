@@ -15,8 +15,8 @@ public class Wall extends Actor{
 	
 	@Override
 	public void init() {
-		ImageIcon iicon = new ImageIcon("src/image/wall.png");
-		Image image = iicon.getImage();
+		ImageIcon icon = new ImageIcon("src/image/wall.png");
+		Image image = icon.getImage();
 		setImage(image);
 		
 	}
