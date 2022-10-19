@@ -27,8 +27,8 @@ public class Actor {
 	/** 
 	 * @param img
 	 */
-	public void setImage(Image img) {
-		image = img;
+	public void setImage(Image image) {
+		this.image = image;
 	}
 	
 	

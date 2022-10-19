@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 public class SokobanGame extends JPanel {
 	
-	ImageIcon bg = new ImageIcon("src/image/scree.jpg");
+	ImageIcon iconPath = new ImageIcon("src/image/scree.jpg");
 	
 	public SokobanGame() {
 		setLayout(null);
@@ -57,6 +57,6 @@ public class SokobanGame extends JPanel {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(bg.getImage(),0,0, this);
+		g.drawImage(iconPath.getImage(),0,0, this);
 	}
 }
