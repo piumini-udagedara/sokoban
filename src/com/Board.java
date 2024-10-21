@@ -21,7 +21,7 @@ public class Board extends JPanel{
 	private int[] completeLevel = new int[11];
 	
 	private ArrayList<Wall> walls;
-	private ArrayList<Baggage> baggs;
+	private ArrayList<Baggage> baggages;
 	private ArrayList<Area> areas;
 	
 	private Player soko;
@@ -63,7 +63,7 @@ public class Board extends JPanel{
 	
 	private void initWorld() {
 		walls = new ArrayList<>();
-		baggs = new ArrayList<>();
+		baggages = new ArrayList<>();
 		areas = new ArrayList<>();
 		
 		int x = OFFSET;
@@ -90,7 +90,7 @@ public class Board extends JPanel{
 					break;
 				case '*':
 					b = new Baggage(x, y);
-					baggs.add(b);
+					baggages.add(b);
 					x += SPACE;
 					break;
 				case '.':
@@ -124,7 +124,7 @@ public class Board extends JPanel{
 		
 		world.addAll(walls);
 		world.addAll(areas);
-		world.addAll(baggs);
+		world.addAll(baggages);
 		world.add(soko);
 		
 		for(int i = 0; i < world.size(); i++) {
@@ -304,11 +304,11 @@ public class Board extends JPanel{
 	private boolean checkBagCollision(int type) {
 		switch (type) {
 		case LEFT_COLLISION:
-			for(int i = 0; i < baggs.size(); i++) {
-				Baggage bag = baggs.get(i);
+			for(int i = 0; i < baggages.size(); i++) {
+				Baggage bag = baggages.get(i);
 				if(soko.isLeftCollision(bag)) {
-					for(int j = 0; j < baggs.size(); j++) {
-						Baggage item = baggs.get(j);
+					for(int j = 0; j < baggages.size(); j++) {
+						Baggage item = baggages.get(j);
 						if(!bag.equals(item)) {
 							if(bag.isLeftCollision(item)) {
 								return true;
@@ -324,11 +324,11 @@ public class Board extends JPanel{
 			}
 			return false;
 		case RIGHT_COLLISION:
-			for(int i = 0; i < baggs.size(); i++) {
-				Baggage bag = baggs.get(i);
+			for(int i = 0; i < baggages.size(); i++) {
+				Baggage bag = baggages.get(i);
 				if(soko.isRightCollision(bag)) {
-					for(int j = 0; j < baggs.size(); j++) {
-						Baggage item = baggs.get(j);
+					for(int j = 0; j < baggages.size(); j++) {
+						Baggage item = baggages.get(j);
 						if(!bag.equals(item)) {
 							if(bag.isRightCollision(item)) {
 								return true;
@@ -344,11 +344,11 @@ public class Board extends JPanel{
 			}
 			return false;
 		case TOP_COLLISION:
-			for(int i = 0; i < baggs.size(); i++) {
-				Baggage bag = baggs.get(i);
+			for(int i = 0; i < baggages.size(); i++) {
+				Baggage bag = baggages.get(i);
 				if(soko.isTopCollision(bag)) {
-					for(int j = 0; j < baggs.size(); j++) {
-						Baggage item = baggs.get(j);
+					for(int j = 0; j < baggages.size(); j++) {
+						Baggage item = baggages.get(j);
 						if(!bag.equals(item)) {
 							if(bag.isTopCollision(item)) {
 								return true;
@@ -364,11 +364,11 @@ public class Board extends JPanel{
 			}
 			return false;
 		case BOTTOM_COLLISION:
-			for(int i = 0; i < baggs.size(); i++) {
-				Baggage bag = baggs.get(i);
+			for(int i = 0; i < baggages.size(); i++) {
+				Baggage bag = baggages.get(i);
 				if(soko.isBottomCollision(bag)) {
-					for(int j = 0; j < baggs.size(); j++) {
-						Baggage item = baggs.get(j);
+					for(int j = 0; j < baggages.size(); j++) {
+						Baggage item = baggages.get(j);
 						if(!bag.equals(item)) {
 							if(bag.isBottomCollision(item)) {
 								return true;
@@ -391,11 +391,11 @@ public class Board extends JPanel{
 	}
 	
 	public void isCompleted() {
-		int nOfBags = baggs.size();
+		int nOfBags = baggages.size();
 		int finishedBags = 0;
 		
 		for(int i = 0; i < nOfBags; i++) {
-			Baggage bag = baggs.get(i);
+			Baggage bag = baggages.get(i);
 			for(int j = 0; j < nOfBags; j++) {
 				Area area = areas.get(j);
 				if(bag.x() == area.x() && bag.y() == area.y()) {
@@ -412,7 +412,7 @@ public class Board extends JPanel{
 	
 	public void restartLevel() {
 		areas.clear();
-		baggs.clear();
+		baggages.clear();
 		walls.clear();
 		
 		initWorld();
@@ -424,7 +424,7 @@ public class Board extends JPanel{
 	
 	public void levelUp() {
 		areas.clear();
-		baggs.clear();
+		baggages.clear();
 		walls.clear();
 		
 		int tempLevel = level;
